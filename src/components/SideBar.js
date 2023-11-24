@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import appContext from "../utils/appContext";
 
 const SideBar = () => {
   //We can subscribe to only specific portion from store
-  const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
+  // const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
 
   // (early return) if(!isMenuOpen) return null;
-
+  const {isMenuOpen} = useContext(appContext);
   return (
     isMenuOpen && (
       <div className="p-5 shadow-lg w-48">

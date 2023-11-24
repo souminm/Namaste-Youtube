@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
+import appContext from "../utils/appContext";
 
 const Head = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
+  const {isMenuOpen,setMenuState} = useContext(appContext);
   const toggleMenuHandler = () => {
-    dispatch(toggleMenu());
+    // dispatch(toggleMenu());
+     setMenuState(!isMenuOpen);
   };
   return (
     <div className="grid grid-flow-col p-5 m-2 shadow-lg">

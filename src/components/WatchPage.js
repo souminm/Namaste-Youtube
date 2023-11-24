@@ -1,15 +1,19 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { closeMenu } from "../utils/appSlice";
+import React, { useContext, useEffect } from "react";
+// import { useDispatch } from "react-redux";
 import { useSearchParams } from "react-router-dom";
+import appContext from "../utils/appContext";
+
 
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
   console.log(searchParams.get("v"));
+  const{setMenuState} = useContext(appContext); 
+  
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(closeMenu());
+    // dispatch(closeMenu());
+    setMenuState(false);
   }, []);
   return (
     <div className="px-5">
