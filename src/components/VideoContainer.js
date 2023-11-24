@@ -15,11 +15,13 @@ const VideoContainer = () => {
     setVideoData(json.items);
   };
 
-  console.log(videoData);
   return (
     <div className="flex flex-wrap">
-      {videoData.map((video, index) => (
-      <Link to={"/watch?v="+video.id}> <VideoCards key={video.id} info={video} /></Link>
+      {videoData.map((video) => (
+        <Link key={video.id} to={"/watch?v=" + video.id}>
+          {" "}
+          <VideoCards info={video} />
+        </Link>
       ))}
     </div>
   );
