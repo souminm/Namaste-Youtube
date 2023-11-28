@@ -2,6 +2,8 @@ import React, { useContext, useEffect } from "react";
 // import { useDispatch } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import appContext from "../utils/appContext";
+import CommentsContainer from "./CommentsContainer";
+import LiveChat from "./LiveChat";
 
 
 const WatchPage = () => {
@@ -16,7 +18,9 @@ const WatchPage = () => {
     setMenuState(false);
   }, []);
   return (
-    <div className="px-5">
+    <div className="flex flex-col">
+    <div className="px-5 flex">
+      <div> 
       <iframe
         width="850"
         height="450"
@@ -26,6 +30,12 @@ const WatchPage = () => {
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
       ></iframe>
+      </div>
+      <div>
+        <LiveChat/>
+      </div>
+    </div>
+    <CommentsContainer/>
     </div>
   );
 };
