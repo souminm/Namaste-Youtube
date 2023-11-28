@@ -12,9 +12,13 @@ const ButtonList = () => {
     "News",
     "Cooking",
     "Valentines",
+    "Music",
+    "Drama",
+    "Gadget",
+    "News"
   ];
   return (
-    <div className="flex">
+    <div className="flex w-screen bg-white overflow-x-scroll no-scrollbar">
       {list.map((item, index) => (
         <div key={index}>
           <Button name={item} />

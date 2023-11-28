@@ -4,6 +4,7 @@ import { toggleMenu } from "../utils/appSlice";
 import appContext from "../utils/appContext";
 import { YOUTUBE_SEARCH_API } from "../utils/constants";
 import { cacheResults } from "../utils/searchSlice";
+import { useNavigate } from "react-router-dom";
 
 const Head = () => {
   // const dispatch = useDispatch();
@@ -12,6 +13,7 @@ const Head = () => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const searchCache = useSelector((store) => store.search); //{}
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   /**searchCache =
    * {
@@ -62,7 +64,7 @@ const Head = () => {
   const getSearchSuggestions = async () => {
     const data = await fetch(YOUTUBE_SEARCH_API + searchText);
     const json = await data.json();
-    console.log(json);
+    // console.log(json);
     setSuggestions(json[1]);
 
     //Update in cache
@@ -80,6 +82,8 @@ const Head = () => {
   };
   const handleYoutubeSearch = (e) => {
     setSearchText(e.target.value);
+    // setShowSuggestions(false);
+    navigate("/search?q=" + searchText);
   };
   return (
     <div className="grid grid-flow-col p-5 m-2 shadow-lg">
@@ -103,7 +107,9 @@ const Head = () => {
             className=" px-2 border border-gray-400 w-1/2 p-2 rounded-l-full"
             type="text"
             value={searchText}
-            onChange={handleYoutubeSearch}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
             onFocus={() => {
               setShowSuggestions(true);
             }}
@@ -111,12 +117,15 @@ const Head = () => {
               setShowSuggestions(false);
             }}
           />
-          <button className="border border-gray-400 px-5 py-2 bg-gray-100 rounded-r-full">
+          <button
+            onClick={handleYoutubeSearch}
+            className="border border-gray-400 px-5 py-2 bg-gray-100 rounded-r-full"
+          >
             🔎
           </button>
         </div>
         {showSuggestions && (
-          <div className="absolute bg-white py-2 px-2 w-[26rem] shadow-lg rounded- border border-gray-100">
+          <div onClick={()=>console.log('hello inside')} className="absolute bg-white py-2 px-2 w-[26rem] shadow-lg rounded- border border-gray-100">
             <ul>
               {suggestions.map((suggestion) => (
                 <li

@@ -7,13 +7,19 @@ import MainContainer from "./components/MainContainer";
 import WatchPage from "./components/WatchPage";
 import appContext from "./utils/appContext";
 import { useState } from "react";
+import SearchResults from "./components/SearchResults";
 
 const appRouter = createBrowserRouter(
   //Array of objects/paths
   [
     {
       path: "/",
-      element: <Body />,
+      element: (
+        <>
+          <Head />
+          <Body />
+        </>
+      ),
       children: [
         {
           path: "/",
@@ -23,17 +29,21 @@ const appRouter = createBrowserRouter(
           path: "watch",
           element: <WatchPage />,
         },
+        {
+          path: "search",
+          element: <SearchResults />,
+        },
       ],
     },
   ]
 );
 function App() {
-  const [menuState,setMenuState] = useState(false);
+  const [menuState, setMenuState] = useState(false);
   return (
     <Provider store={appStore}>
       <div>
-        <appContext.Provider value={{isMenuOpen:menuState,setMenuState}}>
-          <Head />
+        <appContext.Provider value={{ isMenuOpen: menuState, setMenuState }}>
+          {/* <Head /> */}
           <RouterProvider router={appRouter} />
         </appContext.Provider>
 

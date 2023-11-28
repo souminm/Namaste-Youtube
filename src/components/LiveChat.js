@@ -44,14 +44,14 @@ const LiveChat = () => {
         }}
       >
         <input
-          className="px-2 w-96"
+          className="px-2 w-96 border border-black"
           type="text"
           value={sendText}
           onChange={(e) => {
             setSendText(e.target.value);
           }}
         />
-        <button className="px-2 mx-2 bg-green-300">Send</button>
+        <button className="px-2 mx-2 bg-black text-white rounded-sm">Send</button>
       </form>
     </>
   );
