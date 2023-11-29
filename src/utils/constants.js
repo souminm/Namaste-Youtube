@@ -1,4 +1,4 @@
-const GOOGLE_API_KEY = "AIzaSyA58crLmeyjqaWd42BvLsn90jkR2q5ZiK0";
+const GOOGLE_API_KEY = "AIzaSyBuEOu-dd_O8FbW3uavNqVzbfTeybK56TY";
 export const OFFSET_LIVE_CHAT = 25;
 
 export const YOUTUBE_VIDEO_SEARCH_API = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&key="+GOOGLE_API_KEY+"&q=";
@@ -7,7 +7,7 @@ export const YOUTUBE_VIDEO_API =
   GOOGLE_API_KEY;
 
 
-export const YOUTUBE_SEARCH_API = "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
+export const YOUTUBE_SEARCH_API = "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&key="+GOOGLE_API_KEY+"&q=";
 
 
 

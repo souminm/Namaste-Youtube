@@ -4,7 +4,11 @@ import { toggleMenu } from "../utils/appSlice";
 import appContext from "../utils/appContext";
 import { YOUTUBE_SEARCH_API } from "../utils/constants";
 import { cacheResults } from "../utils/searchSlice";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+
+const User = () => {
+  return <div className="p-2 m-2 w-12">Soumin Mohanty</div>;
+};
 
 const Head = () => {
   // const dispatch = useDispatch();
@@ -14,6 +18,7 @@ const Head = () => {
   const searchCache = useSelector((store) => store.search); //{}
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
 
   /**searchCache =
    * {
@@ -85,6 +90,12 @@ const Head = () => {
     // setShowSuggestions(false);
     navigate("/search?q=" + searchText);
   };
+
+  const updateSearchText = (text) => {
+    setSearchText(text)
+    setShowSuggestions(false);
+    navigate("/search?q=" + text);
+  };
   return (
     <div className="grid grid-flow-col p-5 m-2 shadow-lg">
       <div className="flex col-span-1">
@@ -113,9 +124,9 @@ const Head = () => {
             onFocus={() => {
               setShowSuggestions(true);
             }}
-            onBlur={() => {
-              setShowSuggestions(false);
-            }}
+            // onBlur={() => {
+            //   setShowSuggestions(false);
+            // }}
           />
           <button
             onClick={handleYoutubeSearch}
@@ -124,13 +135,14 @@ const Head = () => {
             🔎
           </button>
         </div>
-        {searchText && showSuggestions && (
+        {searchText?.length>0 && showSuggestions && (
           <div className="absolute bg-white py-2 px-2 w-[26rem] shadow-lg rounded- border border-gray-100">
             <ul>
-              {suggestions.map((suggestion) => (
+              {suggestions?.map((suggestion, i) => (
                 <li
-                  key={suggestion}
-                  className="py-2 px-3 shadow-sm hover:bg-gray-100"
+                  onClick={() => updateSearchText(suggestion)}
+                  key={i}
+                  className="cursor-pointer py-2 px-3 shadow-sm hover:bg-gray-100"
                 >
                   🔍 {suggestion}
                 </li>
@@ -141,6 +153,9 @@ const Head = () => {
       </div>
       <div className="col-span-1">
         <img
+          onClick={() => {
+            <User />;
+          }}
           className="h-8"
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5BSEPxHF0-PRxJlVMHla55wvcxWdSi8RU2g&usqp=CAU"
           alt="user-icon"

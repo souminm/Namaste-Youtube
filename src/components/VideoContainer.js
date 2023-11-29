@@ -17,11 +17,11 @@ const VideoContainer = () => {
   };
   // console.log(videoData,'data');
 
-  return (videoData.length === 0? <Shimmer/> :
+  return (videoData?.length === 0? <Shimmer/> :
     <div className="flex flex-wrap">
      {videoData[0] && <AdVideoCard info={videoData[0]} />}
-      {videoData.map((video) => (
-        <Link key={video.id} to={"/watch?v=" + video.id}>
+      {videoData?.map((video) => (
+        <Link key={video?.id} to={"/watch?v=" + video?.id}>
           <VideoCards info={video} />
         </Link>
       ))}
