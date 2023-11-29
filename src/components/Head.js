@@ -124,7 +124,7 @@ const Head = () => {
             🔎
           </button>
         </div>
-        {showSuggestions && (
+        {searchText && showSuggestions && (
           <div className="absolute bg-white py-2 px-2 w-[26rem] shadow-lg rounded- border border-gray-100">
             <ul>
               {suggestions.map((suggestion) => (
