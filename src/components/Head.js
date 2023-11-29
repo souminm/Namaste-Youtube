@@ -4,11 +4,7 @@ import { toggleMenu } from "../utils/appSlice";
 import appContext from "../utils/appContext";
 import { YOUTUBE_SEARCH_API } from "../utils/constants";
 import { cacheResults } from "../utils/searchSlice";
-import { useNavigate, Link } from "react-router-dom";
-
-const User = () => {
-  return <div className="p-2 m-2 w-12">Soumin Mohanty</div>;
-};
+import { useNavigate } from "react-router-dom";
 
 const Head = () => {
   // const dispatch = useDispatch();
@@ -153,9 +149,6 @@ const Head = () => {
       </div>
       <div className="col-span-1">
         <img
-          onClick={() => {
-            <User />;
-          }}
           className="h-8"
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5BSEPxHF0-PRxJlVMHla55wvcxWdSi8RU2g&usqp=CAU"
           alt="user-icon"
