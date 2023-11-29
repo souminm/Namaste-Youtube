@@ -1,6 +1,7 @@
 import React, { useState ,useEffect} from 'react'
 import { useSearchParams,Link } from 'react-router-dom'
 import { YOUTUBE_VIDEO_SEARCH_API } from '../utils/constants';
+import Shimmer from './Shimmer';
 
 const SearchResults = () => {
   const [searchParams] = useSearchParams();
@@ -18,7 +19,7 @@ const SearchResults = () => {
     setSearchedVideos(searchedVideosJson?.items);
     // console.log(searchedVideosJson?.items?.id)
 }
-return (
+return (searchedVideos.length === 0? <Shimmer/> :
   <div className='px-3 col-span-11 mt-10'>
       <div className='flex flex-col px-3  items-center'>
           <div className='p-2 m-2'>
