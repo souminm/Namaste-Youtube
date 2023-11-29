@@ -14,9 +14,9 @@ const SearchResults = () => {
   const getSearchedVideosList = async () => {
     const data = await fetch(YOUTUBE_VIDEO_SEARCH_API + searchQuery);
     const searchedVideosJson = await data.json();
-    console.log(searchedVideosJson);
+    // console.log(searchedVideosJson);
     setSearchedVideos(searchedVideosJson?.items);
-    console.log(searchedVideosJson?.items?.id)
+    // console.log(searchedVideosJson?.items?.id)
 }
 return (
   <div className='px-3 col-span-11 mt-10'>

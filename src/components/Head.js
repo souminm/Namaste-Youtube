@@ -22,7 +22,7 @@ const Head = () => {
    * searchQuery = iphone
    * */
 
-  console.log(suggestions, "suggestion");
+  // console.log(suggestions, "suggestion");
 
   useEffect(() => {
     //api call
@@ -74,7 +74,7 @@ const Head = () => {
       })
     );
   };
-  console.log("search", searchText);
+  // console.log("search", searchText);
   const { isMenuOpen, setMenuState } = useContext(appContext);
   const toggleMenuHandler = () => {
     // dispatch(toggleMenu());
@@ -125,7 +125,7 @@ const Head = () => {
           </button>
         </div>
         {showSuggestions && (
-          <div onClick={()=>console.log('hello inside')} className="absolute bg-white py-2 px-2 w-[26rem] shadow-lg rounded- border border-gray-100">
+          <div className="absolute bg-white py-2 px-2 w-[26rem] shadow-lg rounded- border border-gray-100">
             <ul>
               {suggestions.map((suggestion) => (
                 <li
