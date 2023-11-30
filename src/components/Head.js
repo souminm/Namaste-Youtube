@@ -14,7 +14,7 @@ const Head = () => {
   const searchCache = useSelector((store) => store.search); //{}
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const [showIcon, setShowIcon] = useState(false);
 
   /**searchCache =
    * {
@@ -88,9 +88,12 @@ const Head = () => {
   };
 
   const updateSearchText = (text) => {
-    setSearchText(text)
+    setSearchText(text);
     setShowSuggestions(false);
     navigate("/search?q=" + text);
+  };
+  const handleUserClick = () => {
+    setShowIcon(!showIcon);
   };
   return (
     <div className="grid grid-flow-col p-5 m-2 shadow-lg">
@@ -131,7 +134,7 @@ const Head = () => {
             🔎
           </button>
         </div>
-        {searchText?.length>0 && showSuggestions && (
+        {searchText?.length > 0 && showSuggestions && (
           <div className="absolute bg-white py-2 px-2 w-[26rem] shadow-lg rounded- border border-gray-100">
             <ul>
               {suggestions?.map((suggestion, i) => (
@@ -147,12 +150,21 @@ const Head = () => {
           </div>
         )}
       </div>
-      <div className="col-span-1">
+      <div className="col-span-1 flex flex-col">
         <img
-          className="h-8"
+          className=" w-11 h-8 px-2 cursor-pointer"
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5BSEPxHF0-PRxJlVMHla55wvcxWdSi8RU2g&usqp=CAU"
           alt="user-icon"
+          onClick={handleUserClick}
         ></img>
+        {showIcon &&
+          <div>
+            <div className="absolute h-32 p-2 mr-4 w-32 bg bg-gray-100 shadow-lg rounded-lg">
+              <h1>Welcome User!</h1>
+              <h3>Login</h3>
+            </div>
+          </div>
+        }
       </div>
     </div>
   );
