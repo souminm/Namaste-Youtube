@@ -110,7 +110,7 @@ const CommentsContainer = (props) => {
     const json = await data.json();
     setCommentData(json.items);
   };
-  console.log(commentData, "comment_Data");
+  // console.log(commentData, "comment_Data");
 
   // console.log(videoId,'id');
   return (
