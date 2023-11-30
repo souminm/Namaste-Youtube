@@ -35,7 +35,7 @@ const WatchPage = () => {
         <LiveChat/>
       </div>
     </div>
-    <CommentsContainer/>
+    <CommentsContainer videoId = {searchParams.get("v")}/>
     </div>
   );
 };

@@ -10,5 +10,8 @@ export const YOUTUBE_VIDEO_API =
 export const YOUTUBE_SEARCH_API = "https://corsproxy.io/?http://suggestqueries.google.com/complete/search?client=chrome&ds=yt&key="+GOOGLE_API_KEY+"&q=";
 
 
-
+export const COMMENTS_API =
+  "https://www.googleapis.com/youtube/v3/commentThreads?textFormat=plainText&part=snippet&maxResults=50&key=" +
+  GOOGLE_API_KEY +
+  "&videoId=";
 // Live Chat >>>>> Infinite scroll >>>>> Pagination
