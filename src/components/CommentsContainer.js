@@ -115,7 +115,7 @@ const CommentsContainer = (props) => {
   // console.log(videoId,'id');
   return (
     <div className="m-5 p-2">
-      <h1 className="text-2xl font-bold">{commentData.length} Comments </h1>
+      <h1 className="text-xl md:text-2xl font-bold">{commentData.length} Comments </h1>
       <CommentsList commentData={commentData} />
     </div>
   );

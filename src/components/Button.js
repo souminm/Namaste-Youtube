@@ -9,7 +9,7 @@ const Button = (props) => {
     }
   return (
     <div>
-        <button onClick={handleButton}className='px-5 py-2 m-2 bg-gray-200 rounded-lg'>{name}</button>
+        <button onClick={handleButton}className='md:px-5 px-2  md:py-2 py-0 md:m-2 m-1 bg-gray-200 rounded-lg'>{name}</button>
     </div>
   )
 }

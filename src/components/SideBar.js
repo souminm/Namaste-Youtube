@@ -11,7 +11,7 @@ const SideBar = () => {
   const {isMenuOpen} = useContext(appContext);
   return (
     isMenuOpen && (
-      <div className="p-5 shadow-lg w-48">
+      <div className="md:p-5 p-3 shadow-lg md:w-48 w-25">
         <ul>
           <li>
             <Link to={"/"}>Home</Link>

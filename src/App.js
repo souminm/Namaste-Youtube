@@ -8,6 +8,7 @@ import WatchPage from "./components/WatchPage";
 import appContext from "./utils/appContext";
 import { useState } from "react";
 import SearchResults from "./components/SearchResults";
+import Demo from "./components/Demo";
 
 const appRouter = createBrowserRouter(
   //Array of objects/paths
@@ -33,6 +34,10 @@ const appRouter = createBrowserRouter(
           path: "search",
           element: <SearchResults />,
         },
+        {
+          path:"demo",
+          element:<Demo/>
+        }
       ],
     },
   ]

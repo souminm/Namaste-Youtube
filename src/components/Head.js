@@ -96,25 +96,25 @@ const Head = () => {
     setShowIcon(!showIcon);
   };
   return (
-    <div className="grid grid-flow-col p-5 m-2 shadow-lg">
-      <div className="flex col-span-1">
+    <div className="grid grid-flow-col p-2 md:p-5 m-2 w-full shadow-lg">
+      <div className="flex col-span-4 md:col-span-1">
         <img
           onClick={toggleMenuHandler}
-          className="h-8 cursor-pointer"
+          className="h-6 md:h-8 cursor-pointer"
           src="https://icons.veryicon.com/png/o/miscellaneous/linear-icon-45/hamburger-menu-5.png"
           alt="yt-menu"
         ></img>
         <img
-          className="h-8 mx-2"
+          className="pl-2 h-10 mx-2 md:h-8 md:mx-2"
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzg_LCf5ZahVQ42WRFD0PS3TNrpdOhqvckaO6-xgyo7kmVo5KW2EV6CEUakyaSGdmxqw&usqp=CAU"
           alt="yt-logo"
         ></img>
       </div>
 
-      <div className="col-span-10 px-44">
-        <div>
+      <div className="col-span-6 md:col-span-10 px-0 md:px-44">
+        <div className="mx-10">
           <input
-            className=" px-2 border border-gray-400 w-1/2 p-2 rounded-l-full"
+            className=" px-2 border border-gray-400 w-[70%] md:w-1/2 p-2 rounded-l-full"
             type="text"
             value={searchText}
             onChange={(e) => {
@@ -129,7 +129,7 @@ const Head = () => {
           />
           <button
             onClick={handleYoutubeSearch}
-            className="border border-gray-400 px-5 py-2 bg-gray-100 rounded-r-full"
+            className="border border-gray-400 px-2 md:px-5 py-2 bg-gray-100 rounded-r-full"
           >
             🔎
           </button>
@@ -150,18 +150,17 @@ const Head = () => {
           </div>
         )}
       </div>
-      <div className="col-span-1 flex flex-col">
+      <div className="col-span-2 md:col-span-1 flex flex-col">
         <img
-          className=" w-11 h-8 px-2 cursor-pointer"
+          className="w-11 h-8 px-2 cursor-pointer"
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5BSEPxHF0-PRxJlVMHla55wvcxWdSi8RU2g&usqp=CAU"
           alt="user-icon"
           onClick={handleUserClick}
         ></img>
         {showIcon &&
           <div>
-            <div className="absolute h-32 p-2 mr-4 w-32 bg bg-gray-100 shadow-lg rounded-lg">
+            <div className="absolute h-16 md:h-26 p-2 mr-4 w-20 md:w-30 bg bg-gray-100 shadow-lg rounded-lg">
               <h1>Welcome User!</h1>
-              <h3>Login</h3>
             </div>
           </div>
         }

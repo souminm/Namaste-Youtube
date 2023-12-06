@@ -4,7 +4,7 @@ const ChatMessage = ({name,message}) => {
   return (
     <div className="flex items-center shadow-sm p-2">
       <img
-        className="h-8"
+        className="h-4 md:h-8"
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5BSEPxHF0-PRxJlVMHla55wvcxWdSi8RU2g&usqp=CAU"
         alt="user-icon"
       />
